@@ -18,13 +18,18 @@ struct HomePage: View {
     }
 }
 
-
 struct PostView : View {
     
     let img : ImageElement
     //What to do for this variable in MVVM???
 
     var body: some View{
+        
+        
+        VStack(content: {
+            
+        })
+
         VStack(){
             HStack{
                 Image(systemName: "person.circle.fill")

@@ -51,6 +51,16 @@ struct ButtonView : View {
 }
 
 struct ButtonPlayground: View {
+    
+    @State var ColorIsBlue : Bool = true
+    
+    func getColor() -> UIColor {
+        if(ColorIsBlue) {
+            return UIColor.blue
+        }
+        return UIColor.red
+    }
+    
     var body: some View {
         ScrollView(){
             VStack(){
@@ -131,21 +141,20 @@ struct ButtonPlayground: View {
             
             Button("Click Me", action: {
                 print("Button clicked")
-            })
-            .border(.blue)
-            .buttonBorderShape(.capsule)
-            .frame(width: 300)
-            .padding(.bottom, 20)
-            .cornerRadius(30)
-            
-            Button("Click Me", action: {
-                print("Button clicked")
+                ColorIsBlue.toggle()
             })
             .border(.blue)
             .frame(width: 300)
             .background(Color.yellow)
             .padding(.bottom, 20)
             
+            Text("hello world")
+//                .foregroundColor(
+//                    Color(ColorIsBlue ? .blue : .red)
+//                )
+            .foregroundColor(
+                Color(getColor())
+            )
         }
     }
 }
@@ -169,4 +178,13 @@ naming conventions                  -> Done
 lifecycle methods                   -> learn and try to implement
  https://betterprogramming.pub/view-life-cycle-methods-in-swiftui-b7fa9f0e8dfb
  https://developer.apple.com/tutorials/app-dev-training/managing-state-and-life-cycle
+ 
+ 
+ 
+ 
+ //Escaping Closures
+ // in out keyword
+ // escaping closures
+ // week self
+
 */
